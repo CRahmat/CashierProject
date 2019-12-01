@@ -1,15 +1,25 @@
 package update;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import Connection.DatabaseConnection;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Catur Rahmat
  */
 public class UpdateModel {
+    public void UpdateData(int productPrice, int productProfit, int productStock){
+        try{
+          String query = "INSERT INTO product VALUES(price = productPrice, profit = productProfit, stock = productStock)";
+          Statement statement = DatabaseConnection.getConnection().createStatement();
+          statement.executeUpdate(query); //excecute query nya
+          System.out.println("Berhasil Ditambahkan");
+          
+      }catch(Exception sql){
+          System.out.println(sql.getMessage());
+          JOptionPane.showMessageDialog(null, sql.getMessage());
+      }
+    }
     
 }

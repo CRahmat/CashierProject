@@ -40,9 +40,12 @@ public class InputController {
                 String productID = inputView.getIdProduct();
                 String productName = inputView.getNameProduct();
                 String productPrice = inputView.getPrice();
+                int price = Integer.parseInt(productPrice);
                 String productProfit = inputView.getProfit();
+                int profit = Integer.parseInt(productProfit);
                 String productStock = inputView.getStock();
-                inputModel.InputData(productID, productName, productPrice, productProfit, productStock);
+                int stock = Integer.parseInt(productStock);
+                inputModel.InputData(productID, productName, price, profit, stock);
             }
         
         });

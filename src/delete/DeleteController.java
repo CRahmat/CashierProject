@@ -23,6 +23,16 @@ public class DeleteController {
                 VCHome vcHome = new VCHome();
             }
         });
+        deleteView.pdelete.addMouseListener(new MouseAdapter() {
+           @Override
+           public void mouseClicked(MouseEvent me){
+               super.mouseClicked(me);
+               String productID = deleteView.getIdProduct();
+               deleteModel.deleteData(productID);
+               
+           } 
+            
+});
         
     }
     

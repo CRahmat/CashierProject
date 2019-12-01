@@ -11,7 +11,7 @@ public class DatabaseConnection {
     static final String DB_URL = "jdbc:mysql://localhost/database";
     static final String USER = "root";
     static final String PASS = "";
-    public static Connection connection;
+    private static Connection connection;
     
      public static Connection getConnection(){
         if(connection == null){
@@ -19,7 +19,7 @@ public class DatabaseConnection {
             Class.forName(JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL,USER,PASS);
             System.out.println("Koneksi Berhasil");
-        }catch(Exception ex){
+        }catch(ClassNotFoundException | SQLException ex){
             JOptionPane.showMessageDialog(null, ex.getStackTrace());
             System.out.println("Koneksi gagal");
         }

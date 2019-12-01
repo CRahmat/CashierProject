@@ -28,21 +28,18 @@ public class InputModel {
         this.productName = productName;
     }
 
-    public void setProductPrice(String productPrice) {
-        int Price = Integer.parseInt(productPrice);
-        this.productPrice = Price;
+    public void setProductPrice(int productPrice) {
+        this.productPrice = productPrice;
     }
 
-    public void setProductProfit(String productProfit) {
-        int Profit = Integer.parseInt(productId);
-        this.productProfit = Profit;
+    public void setProductProfit(int productProfit) {
+        this.productProfit = productProfit;
     }
 
-    public void setProductStock(String productStock) {
-        int Stock = Integer.parseInt(productId);
-        this.productStock = Stock;
+    public void setProductStock(int productStock) {
+        this.productStock = productStock;
     }
-    public void InputData(String productID, String productName, String productPrice, String productProfit, String productStock){
+    public void InputData(String productID, String productName, int productPrice, int productProfit, int productStock){
         setProductId(productID);
         setProductName(productName);
         setProductPrice(productPrice);

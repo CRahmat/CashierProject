@@ -25,11 +25,25 @@ public class UpdateController {
     updateView.pback.addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent me){
-                super.mouseMoved(me);
+                super.mouseClicked(me);
                 updateView.layout.setVisible(false);
                 VCHome vcHome = new VCHome();
             }
         });
+    updateView.pupdate.addMouseListener(new MouseAdapter() {
+    public void mouseClicked(MouseEvent me){
+        super.mouseClicked(me);
+        String tempPrice = updateView.tfUpdateProductPrice.getText();
+        int price = Integer.parseInt(tempPrice);
+        String tempProfit = updateView.tfUpdateProfit.getText();
+        int profit = Integer.parseInt(tempProfit);
+        String tempStock = updateView.tfUpdateStock.getText();
+        int stock = Integer.parseInt(tempStock);
+        updateModel.UpdateData(price, profit, stock);
+        
+    }  
+
+    });
         
     }
     
