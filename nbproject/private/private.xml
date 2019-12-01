@@ -7,6 +7,7 @@
             <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/input/InputModel.java</file>
             <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/list/ListController.java</file>
             <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/delete/DeleteController.java</file>
+            <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/home/HomeView.java</file>
             <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/update/UpdateModel.java</file>
             <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/list/ListView.java</file>
             <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/input/MVCInput.java</file>
@@ -18,12 +19,14 @@
             <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/profit/MVCProfit.java</file>
             <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/delete/DeleteView.java</file>
             <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/delete/MVCDelete.java</file>
+            <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/home/VCHome.java</file>
             <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/list/ListModel.java</file>
             <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/history/MVCHistory.java</file>
             <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/input/InputController.java</file>
+            <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/home/HomeController.java</file>
             <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/delete/DeleteModel.java</file>
-            <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/Home/HomeView.java</file>
-            <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/Home/HomeController.java</file>
+            <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/profit/ProfitModel.java</file>
+            <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/profit/ProfitController.java</file>
             <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/update/UpdateController.java</file>
             <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/history/HistoryView.java</file>
             <file>file:/C:/Users/Catur%20Rahmat/Documents/NetBeansProjects/AppMarket/src/profit/ProfitView.java</file>
