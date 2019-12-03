@@ -79,7 +79,7 @@ public class CashierModel {
                   int tempprice = Integer.parseInt(resultSet.getString("price"));
                   int tempprofit = Integer.parseInt(resultSet.getString("profit"));
                   int total = tempprice + tempprofit;
-                  String price = String.valueOf(total);
+                  String price = "Rp "+String.valueOf(total);
               allProduct[i][0] = resultSet.getString("id_product");
               allProduct[i][1] = resultSet.getString("product_name");
               allProduct[i][2] = price;

@@ -45,7 +45,7 @@ public class HistoryModel {
               allProduct[i][1] = resultSet.getString("historytransaction.date");
               allProduct[i][2] = resultSet.getString("product.product_name");
               allProduct[i][3] = resultSet.getString("historytransaction.jumlah");
-              allProduct[i][4] = resultSet.getString("product.price");
+              allProduct[i][4] = "Rp " + resultSet.getString("product.price");
               i++;
             }
             

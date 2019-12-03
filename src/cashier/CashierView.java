@@ -179,7 +179,7 @@ public class CashierView {
         layout.add(pList);
         
         //NON DATABASE
-        tableShop = new DefaultTableModel(coloumShop, 20);
+        tableShop = new DefaultTableModel(coloumShop, 0);
         listShop = new JTable(tableShop);
         pListShop = new JScrollPane(listShop);
         pListShop.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -303,7 +303,7 @@ public class CashierView {
     }
 
     public void setprice(String price) {
-        tfprice.setText(price);
+        tfprice.setText("Rp" + price);
     }
 
     public void settotalShop(String totalShop) {

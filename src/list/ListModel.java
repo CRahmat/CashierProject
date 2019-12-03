@@ -44,7 +44,7 @@ public class ListModel {
             while(resultSet.next()){
               allProduct[i][0] = resultSet.getString("id_product");
               allProduct[i][1] = resultSet.getString("product_name");
-              allProduct[i][2] = resultSet.getString("price");
+              allProduct[i][2] = "Rp" + resultSet.getString("price");
               allProduct[i][3] = resultSet.getString("profit");
               allProduct[i][4] = resultSet.getString("stock");
               i++;
