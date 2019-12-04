@@ -178,5 +178,9 @@ public class DeleteView {
     public void setNameProduct(String ProductName){
         tfProductName.setText(ProductName);
     }
+
+    public void setIdProduct(String IdProduct) {
+        tfIdProduct.setText(IdProduct);
+    }
     
 }

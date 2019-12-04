@@ -231,6 +231,9 @@ public class UpdateView {
     public String getIdProduct(){
         return tfIdProduct.getText();
     }
+    public void setProductID(String ProductID){
+        tfProductName.setText(ProductID);
+    }
     public void setNameProduct(String ProductName){
         tfProductName.setText(ProductName);
     }

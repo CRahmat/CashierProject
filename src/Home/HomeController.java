@@ -1,6 +1,7 @@
 package Home;
 
 
+import cashier.MVCCashier;
 import delete.MVCDelete;
 import history.MVCHistory;
 import input.InputView;
@@ -42,6 +43,13 @@ public class HomeController {
             MVCUpdate mvcUpdate = new MVCUpdate();
         }
         });
+        homeView.logoutAdmin.addMouseListener(new MouseAdapter() {
+        @Override
+        public void mouseClicked(MouseEvent me){
+            homeView.home.setVisible(false);
+            //new MVCLogin();
+        }
+        });
         homeView.delete.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me){
@@ -68,6 +76,13 @@ public class HomeController {
             public void mouseClicked(MouseEvent me){
             homeView.home.setVisible(false);
             MVCProfit mvcHistory = new MVCProfit();
+            }
+        });
+        homeView.LAdmin.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent me){
+            homeView.home.setVisible(false);
+            MVCCashier mVCCashier = new MVCCashier();
             }
         });
         

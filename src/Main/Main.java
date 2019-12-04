@@ -3,13 +3,11 @@ package Main;
 import Connection.DatabaseConnection;
 import Home.HomeController;
 import Home.HomeView;
+import cashier.CashierView;
+import home.VCHome;
     public class Main {
     public static void main(String[] args) {
-        DatabaseConnection.getConnection();
-        HomeView hv;
-        hv = new HomeView();
-        HomeController hc;
-        hc = new HomeController(hv);
+        VCHome vCHome = new VCHome();
     }
     
 }

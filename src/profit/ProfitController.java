@@ -14,6 +14,9 @@ public class ProfitController {
     public ProfitController(ProfitModel profitModel, ProfitView profitView){
         this.profitModel = profitModel;
         this.profitView = profitView;
+        
+       profitView.setLRp(String.valueOf(profitModel.getTotalProfit(0)));
+        
             profitView.pback.addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent me){

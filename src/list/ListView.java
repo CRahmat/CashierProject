@@ -8,12 +8,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.table.DefaultTableModel;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
@@ -38,6 +34,10 @@ public class ListView {
     JLabel LKlist = new JLabel("Show Your All Product In Database");
     JLabel lclock = new JLabel();
     JLabel ldate = new JLabel();
+    JTable listProduct;
+    JScrollPane pList;
+    DefaultTableModel tableModel;
+    String colom[] = {"ID PRODUCT" , "PRODUCT NAME", "PRICE", "PROFIT", "STOCK"};
 
     ImageIcon ILogo = new ImageIcon(getClass().getResource("/img/logo.png"));
     ImageIcon IBack = new ImageIcon(getClass().getResource("/img/back.png"));
@@ -61,12 +61,12 @@ public class ListView {
         }
         };
         clock.start();
-        initComponents();
         layout.setSize(1100,650);
         layout.setDefaultCloseOperation(EXIT_ON_CLOSE);
         layout.setVisible(true);
         layout.setLocationRelativeTo(null);
-        layout.setResizable(false); 
+        layout.setResizable(false);
+        initComponents();
     }
     public void initComponents(){
         layout.add(homeBackground);
@@ -116,7 +116,14 @@ public class ListView {
         LKlist.setForeground(Color.WHITE);
         LKlist.setBounds(490,70,340,15);
         layout.add(LKlist);
-       
+        
+        tableModel = new DefaultTableModel(colom, 24);
+        listProduct = new JTable(tableModel);
+        pList = new JScrollPane(listProduct);
+        pList.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        pList.setBounds(50,170,1000,400);
+        layout.add(pList);
+        
         
         //setBounds(KIRI,ATAS,KANAN,BAWAH);
         header.setSize(1100, 200);
@@ -126,7 +133,6 @@ public class ListView {
         content.setBounds(0,120,430,1100);
         content.setBackground(new Color(0, 188, 242));
         layout.add(content);
-        
     }
     
 }

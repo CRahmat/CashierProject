@@ -66,7 +66,7 @@ public class HomeView {
     
     ImageIcon logo = new ImageIcon(getClass().getResource("/img/Logo.png"));
     ImageIcon background = new ImageIcon(getClass().getResource("/img/BackgroundContent.jpg"));
-    ImageIcon admin = new ImageIcon(getClass().getResource("/img/adminIcon.png"));
+    ImageIcon admin = new ImageIcon(getClass().getResource("/img/Cashier.png"));
     ImageIcon logout = new ImageIcon(getClass().getResource("/img/logout.png"));
     ImageIcon Search = new ImageIcon(getClass().getResource("/img/search.png"));
     ImageIcon Input = new ImageIcon(getClass().getResource("/img/input.png"));

@@ -131,9 +131,9 @@ public class ProfitView {
         JSProfit.setBounds(380,330,400,10);
         layout.add(JSProfit);
         
-        LRp.setFont(new Font("DS-Digital",Font.CENTER_BASELINE,45));
+        LRp.setFont(new Font("DS-Digital",Font.CENTER_BASELINE,70));
         LRp.setForeground(Color.WHITE);
-        LRp.setBounds(390,355,380,45);
+        LRp.setBounds(420,340,450,80);
         layout.add(LRp);
         
         JSProfit2.setBounds(380,420,400,10);
@@ -157,5 +157,10 @@ public class ProfitView {
         layout.add(content);
         
     }
+
+    public void setLRp(String LRp) {
+        this.LRp.setText("Rp " + LRp);
+    }
+    
     
 }
