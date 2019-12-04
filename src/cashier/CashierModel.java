@@ -26,6 +26,7 @@ public class CashierModel {
     int productNumber = 0;
     int totalProfit = 0;
     boolean checking = false;
+    boolean transaction = false;
     public boolean checkingData(String productID){
     try{
           String query = "SELECT * FROM product ";
@@ -45,6 +46,7 @@ public class CashierModel {
                   this.jumlahItem++;
                   this.productNumber++;
                   jumlahBelanja = jumlahBelanja+total;
+                  
               }
           }
           

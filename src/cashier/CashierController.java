@@ -40,7 +40,17 @@ public class CashierController {
             public void mouseClicked(MouseEvent me){
                 super.mouseClicked(me);
                 cashierView.layout.setVisible(false);
-                VCHome vcHome = new VCHome();
+                cashierModel.transaction = false;
+                if(cashierView.listShop.getRowCount() == 0){
+                   cashierModel.transaction = true;
+                    new VCHome();
+                }else if(cashierModel.transaction == false){
+                    cashierView.layout.setVisible(true);
+                    JOptionPane.showMessageDialog(null, "SILAHKAN MEMBAYAR TERLEBIH DAHULU!!!");
+                    
+                }else{
+                    new VCHome();
+                }
             }
     });
     cashierView.listProduct.addMouseListener(new MouseAdapter(){
@@ -58,6 +68,11 @@ public class CashierController {
                    cashierView.settotalShop(String.valueOf(cashierModel.jumlahBelanja));
                    cashierView.setjumlahItem(String.valueOf(cashierModel.jumlahItem));
                    //INPUT TO TABLE SHOP
+                   //INPUT TO DATABASE
+                   String Date = cashierView.ldate.getText() +"|"+  cashierView.lclock.getText();
+                   int price = Integer.parseInt(cashierModel.productPrice);
+                   int profit = Integer.parseInt(cashierModel.productProfit);
+                   cashierModel.addHistory(productID, Date, cashierModel.jumlahItem,price, profit);
                    cashierView.tableShop.insertRow(cashierView.tableShop.getRowCount(), new Object[]{
                        cashierModel.productNumber, cashierModel.productName, 
                        "Rp" + cashierModel.productPrice, cashierModel.jumlahItem
@@ -65,11 +80,6 @@ public class CashierController {
                     int updateStock = Integer.parseInt(cashierModel.productStock);
                     updateStock--;
                     cashierModel.updateStock(cashierView.tfproductID.getText(), updateStock);
-                   //INPUT TO DATABASE
-                   String Date = cashierView.ldate.getText() +"-"+  cashierView.lclock.getText();
-                   int price = Integer.parseInt(cashierModel.productPrice);
-                   int profit = Integer.parseInt(cashierModel.productProfit);
-                   cashierModel.addHistory(productID, Date, cashierModel.jumlahItem,price, profit);
                    cashierModel.checking = false;
                }
                 else{
@@ -95,18 +105,17 @@ public class CashierController {
                    cashierView.setstock(cashierModel.productStock);
                    cashierView.settotalShop(String.valueOf(cashierModel.jumlahBelanja));
                    cashierView.setjumlahItem(String.valueOf(cashierModel.jumlahItem));
-                   //INPUT TO TABLE SHOP
-                   int i = 0;
-                   cashierView.tableShop.insertRow(i,new Object[]{cashierModel.productNumber, cashierModel.productName, "Rp" + cashierModel.productPrice, cashierModel.jumlahItem});
-                   i++;
-                   int updateStock = Integer.parseInt(cashierModel.productStock);
-                    updateStock--;
-                    cashierModel.updateStock(cashierView.tfproductID.getText(), updateStock);
                    //INPUT TO DATABASE
-                   String Date = cashierView.ldate.getText() +"-"+  cashierView.lclock.getText();
+                   String Date = cashierView.ldate.getText() +"|"+  cashierView.lclock.getText();
                    int price = Integer.parseInt(cashierModel.productPrice);
                    int profit = Integer.parseInt(cashierModel.productProfit);
                    cashierModel.addHistory(productID, Date, cashierModel.jumlahItem,price, profit);
+                   cashierView.tableShop.insertRow(cashierView.tableShop.getRowCount(), new Object[]{
+                       cashierModel.productNumber, cashierModel.productName, 
+                       "Rp" + cashierModel.productPrice, cashierModel.jumlahItem
+                   });
+                    int updateStock = Integer.parseInt(cashierModel.productStock);
+                    updateStock--;
                    cashierModel.checking = false;
                    cashierView.tfproductID.setText("");
                }
@@ -127,12 +136,14 @@ public class CashierController {
             public void actionPerformed(ActionEvent e) {
                 int money = Integer.parseInt(cashierView.tfmoney.getText());
                 int total =cashierModel.jumlahBelanja;
+                cashierModel.transaction = false;
                if(money >= total){
                    int tempChange = money - total;
                    String change = String.valueOf(tempChange);
                    cashierView.tfchange.setText(change);
                    cashierView.layout.setVisible(false);
                    JOptionPane.showMessageDialog(null, "TERIMA KASIH TELAH BERBELANJA, SELAMAT DATANG KEMBALI");
+                   cashierModel.transaction = true;
                    new VCHome();
                }else{
                    cashierView.setMoney("");

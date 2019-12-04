@@ -9,6 +9,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import javax.swing.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -53,6 +54,12 @@ public class InputView {
     JLabel lProfit = new JLabel("PROFIT");
     JLabel lStock = new JLabel("STOCK");
     JLabel linputProduct = new JLabel("INPUT PRODUCT");
+    
+    JTable listProduct;
+    JScrollPane pList;
+    DefaultTableModel tableModel;
+    String colom[] = {"ID PRODUCT" , "PRODUCT NAME", "PRICE", "STOCK"};
+    
     ImageIcon ILogo = new ImageIcon(getClass().getResource("/img/logo.png"));
     ImageIcon IBack = new ImageIcon(getClass().getResource("/img/back.png"));
     public InputView(){
@@ -131,70 +138,76 @@ public class InputView {
         LKinput.setBounds(420,70,340,15);
         layout.add(LKinput);
         
-        BScanner.setBounds(35,150,400,430);
-        BScanner.setBackground(Color.DARK_GRAY);
-        layout.add(BScanner);
         
         lIdProduct.setFont(new Font("Agency FB",Font.CENTER_BASELINE,18));
         lIdProduct.setForeground(Color.WHITE);
-        lIdProduct.setBounds(470,170,80,40);
+        lIdProduct.setBounds(650,170,80,40);
         layout.add(lIdProduct);
         
         tfIdProduct.setFont(new Font("Agency FB",Font.TYPE1_FONT,18));
         tfIdProduct.setBackground(new Color(176,224,230));
-        tfIdProduct.setBounds(550,170,300,40);
+        tfIdProduct.setBounds(750,170,300,40);
         layout.add(tfIdProduct);
         
         lProductName.setFont(new Font("Agency FB",Font.CENTER_BASELINE,18));
         lProductName.setForeground(Color.WHITE);
-        lProductName.setBounds(470,240,80,40);
+        lProductName.setBounds(650,240,80,40);
         layout.add(lProductName);
         
         tfProductName.setFont(new Font("Agency FB",Font.TYPE1_FONT,18));
         tfProductName.setBackground(new Color(176,224,230));
-        tfProductName.setBounds(550,240,300,40);
+        tfProductName.setBounds(750,240,300,40);
         layout.add(tfProductName);
         
         lProductPrice.setFont(new Font("Agency FB",Font.CENTER_BASELINE,18));
         lProductPrice.setForeground(Color.WHITE);
-        lProductPrice.setBounds(470,310,80,40);
+        lProductPrice.setBounds(650,310,80,40);
         layout.add(lProductPrice);
         
         tfProductPrice.setFont(new Font("Agency FB",Font.TYPE1_FONT,18));
         tfProductPrice.setBackground(new Color(176,224,230));
-        tfProductPrice.setBounds(550,310,300,40);
+        tfProductPrice.setBounds(750,310,300,40);
         layout.add(tfProductPrice);
         
         lProfit.setFont(new Font("Agency FB",Font.CENTER_BASELINE,18));
         lProfit.setForeground(Color.WHITE);
-        lProfit.setBounds(470,380,80,40);
+        lProfit.setBounds(650,380,80,40);
         layout.add(lProfit);
         
         tfProfit.setFont(new Font("Agency FB",Font.TYPE1_FONT,18));
         tfProfit.setBackground(new Color(176,224,230));
-        tfProfit.setBounds(550,380,300,40);
+        tfProfit.setBounds(750,380,300,40);
         layout.add( tfProfit);
         
         lStock.setFont(new Font("Agency FB",Font.CENTER_BASELINE,18));
         lStock.setForeground(Color.WHITE);
-        lStock.setBounds(470,450,80,40);
+        lStock.setBounds(650,450,80,40);
         layout.add(lStock);
         
         tfStock.setFont(new Font("Agency FB",Font.TYPE1_FONT,18));
          tfStock.setBackground(new Color(176,224,230));
-         tfStock.setBounds(550,450,300,40);
+         tfStock.setBounds(750,450,300,40);
         layout.add( tfStock);
         
         linputProduct.setFont(new Font("Agency FB",Font.CENTER_BASELINE,18));
         linputProduct.setForeground(Color.BLACK);
-        linputProduct.setBounds(655,520,250,40);
+        linputProduct.setBounds(855,520,250,40);
         layout.add(linputProduct);
         
-        pinput.setBounds(575,520,250,40);
+        pinput.setBounds(775,520,250,40);
         pinput.setBackground(Color.WHITE);
         layout.add(pinput);
-       
         
+        tableModel = new DefaultTableModel(colom, 0);
+        listProduct = new JTable(tableModel);
+        pList = new JScrollPane(listProduct);
+        pList.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        pList.setBounds(50,150,550,430);
+        layout.add(pList);
+        
+        BScanner.setBounds(50,150,550,430);
+        BScanner.setBackground(Color.DARK_GRAY);
+        layout.add(BScanner);
         //setBounds(KIRI,ATAS,KANAN,BAWAH);
         header.setSize(1100, 200);
         header.setBounds(0,0,1100,120);

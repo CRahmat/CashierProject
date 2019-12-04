@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -27,6 +28,19 @@ public class UpdateController {
     public UpdateController(UpdateModel updateModel, UpdateView updateView){
         this.updateModel = updateModel;
         this.updateView = updateView;
+                String data[][] = updateModel.findAllProduct();
+           updateView.listProduct.setModel((new JTable(data, updateView.colom)).getModel());
+            updateView.listProduct.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e){
+                    super.mousePressed(e);
+                    int row = updateView.listProduct.getSelectedRow();
+                    int col = updateView.listProduct.getSelectedColumn();
+                    updateView.listProduct.getValueAt(row,0).toString();
+                }
+                
+});
+            
     updateView.pback.addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent me){
@@ -69,6 +83,8 @@ public class UpdateController {
         String tempStock = updateView.tfUpdateStock.getText();
         int stock = Integer.parseInt(tempStock);
         updateModel.UpdateData(productID, price, profit, stock);
+        String data[][] = updateModel.findAllProduct();
+                    updateView.listProduct.setModel((new JTable(data, updateView.colom)).getModel());
         }
         
     }  

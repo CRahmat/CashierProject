@@ -41,10 +41,44 @@ public class DeleteModel {
                 Statement statement = DatabaseConnection.getConnection().createStatement();
                 statement.executeUpdate(delete);
                 JOptionPane.showMessageDialog(null, "'"+productName+"' SUCCESSFULLY DELETED");
-                MVCList mVCList = new MVCList();
       }catch(Exception sql){
           JOptionPane.showMessageDialog(null, sql.getMessage());
       }
 
+    }
+    
+    public int getCount(){
+        int count = 0;
+        try{
+            String query = "SELECT COUNT(*) as count FROM product";
+            Statement statement = DatabaseConnection.getConnection().createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+          if(resultSet.next()){
+              count = resultSet.getInt("count");
+          }   
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "DATA TIDAK DITEMUKAN");
+        }
+        return count;
+    }
+    public String [][] findAllProduct(){
+        String[][] allProduct = new String[this.getCount()][3];
+        try{
+            String query = "SELECT * FROM product";
+            Statement statement = DatabaseConnection.getConnection().createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            int i = 0;
+            while(resultSet.next()){
+              allProduct[i][0] = resultSet.getString("id_product");
+              allProduct[i][1] = resultSet.getString("product_name");
+              allProduct[i][2] = "Rp" + resultSet.getString("price");
+              i++;
+            }
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "DATA TIDAK DITEMUKAN");
+        }
+        
+        return allProduct;
     }
 }

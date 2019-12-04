@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -48,6 +49,11 @@ public class DeleteView {
     JLabel lIdProduct = new JLabel("ID PRODUCT");
     JLabel lProductName = new JLabel("NAME");
 
+            JTable listProduct;
+    JScrollPane pList;
+    DefaultTableModel tableModel;
+    String colom[] = {"ID PRODUCT" , "PRODUCT NAME", "PRICE"};
+    
     JLabel ldeleteProduct = new JLabel("DELETE PRODUCT");
     ImageIcon ILogo = new ImageIcon(getClass().getResource("/img/logo.png"));
     ImageIcon IBack = new ImageIcon(getClass().getResource("/img/back.png"));
@@ -128,13 +134,9 @@ public class DeleteView {
         LKdelete.setBounds(455,70,340,15);
         layout.add(LKdelete);
         
-        BScanner.setBounds(35,150,400,430);
-        BScanner.setBackground(Color.DARK_GRAY);
-        layout.add(BScanner);
-        
         lIdProduct.setFont(new Font("Agency FB",Font.CENTER_BASELINE,18));
         lIdProduct.setForeground(Color.WHITE);
-        lIdProduct.setBounds(730,200,80,40);
+        lIdProduct.setBounds(725,200,80,40);
         layout.add(lIdProduct);
         
         tfIdProduct.setFont(new Font("Agency FB",Font.TYPE1_FONT,18));
@@ -162,6 +164,15 @@ public class DeleteView {
         pdelete.setBackground(Color.WHITE);
         layout.add(pdelete);
        
+        tableModel = new DefaultTableModel(colom, 24);
+        listProduct = new JTable(tableModel);
+        pList = new JScrollPane(listProduct);
+        pList.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        pList.setBounds(35,150,400,430);
+        layout.add(pList);
+        
+        BScanner.setBounds(35,150,400,430);
+        BScanner.setBackground(Color.DARK_GRAY);
         
         //setBounds(KIRI,ATAS,KANAN,BAWAH);
         header.setSize(1100, 200);

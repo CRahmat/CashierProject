@@ -19,6 +19,19 @@ public class DeleteController {
         this.deleteModel = deleteModel;
         this.deleteView = deleteView;
         
+        
+            String data[][] = deleteModel.findAllProduct();
+            deleteView.listProduct.setModel((new JTable(data, deleteView.colom)).getModel());
+            deleteView.listProduct.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e){
+                    super.mousePressed(e);
+                    int row = deleteView.listProduct.getSelectedRow();
+                    int col = deleteView.listProduct.getSelectedColumn();
+                    deleteView.listProduct.getValueAt(row,0).toString();
+                }
+                
+});
         deleteView.pback.addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent me){
@@ -50,6 +63,8 @@ public class DeleteController {
                String productID = deleteView.getIdProduct();
                if(deleteModel.checkingData(productID) == true){
                    deleteModel.deleteData(productID);
+            String data[][] = deleteModel.findAllProduct();
+           deleteView.listProduct.setModel((new JTable(data, deleteView.colom)).getModel());
                }
                else{
                    JOptionPane.showMessageDialog(null, "NOT FOUND DATA");

@@ -21,10 +21,24 @@ import javax.swing.JTable;
 public class InputController {
     InputView inputView;
     InputModel inputModel;
+    
     public InputController(InputView inputView, InputModel inputModel){
         this.inputModel = inputModel;
         this.inputView = inputView;
         
+        String data[][] = inputModel.findAllProduct();
+            inputView.listProduct.setModel((new JTable(data, inputView.colom)).getModel());
+            inputView.listProduct.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e){
+                    super.mousePressed(e);
+                    int row = inputView.listProduct.getSelectedRow();
+                    int col = inputView.listProduct.getSelectedColumn();
+                    inputView.listProduct.getValueAt(row,0).toString();
+                }
+                
+});
+            
         inputView.pback.addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent me){
@@ -46,11 +60,12 @@ public class InputController {
                 String productStock = inputView.getStock();
                 int stock = Integer.parseInt(productStock);
                 inputModel.InputData(productID, productName, price, profit, stock);
+                 String data[][] = inputModel.findAllProduct();
+                    inputView.listProduct.setModel((new JTable(data, inputView.colom)).getModel());
             }
         
         });
         
+    }
         
     }
-    
-}

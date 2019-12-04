@@ -9,6 +9,7 @@ import java.util.Date;
 import javax.swing.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import static javax.swing.SwingConstants.VERTICAL;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -52,6 +53,11 @@ public class UpdateView {
     JLabel lProfit = new JLabel("PROFIT");
     JLabel lStock = new JLabel("STOCK");
     JLabel linputProduct = new JLabel("UPDATE PRODUCT");
+      JTable listProduct;
+    JScrollPane pList;
+    DefaultTableModel tableModel;
+    String colom[] = {"ID PRODUCT" , "PRODUCT NAME", "PRICE"};
+    
     ImageIcon ILogo = new ImageIcon(getClass().getResource("/img/logo.png"));
     ImageIcon IBack = new ImageIcon(getClass().getResource("/img/back.png"));
     UpdateView(){
@@ -129,11 +135,6 @@ public class UpdateView {
         LKinput.setForeground(Color.WHITE);
         LKinput.setBounds(420,70,340,15);
         layout.add(LKinput);
-        
-        BScanner.setBounds(35,150,400,430);
-        BScanner.setBackground(Color.DARK_GRAY);
-        layout.add(BScanner);
-        
         
         lIdProduct.setFont(new Font("Agency FB",Font.CENTER_BASELINE,18));
         lIdProduct.setForeground(Color.WHITE);
@@ -219,6 +220,16 @@ public class UpdateView {
         pupdate.setBackground(Color.WHITE);
         layout.add(pupdate);
        
+        tableModel = new DefaultTableModel(colom, 24);
+        listProduct = new JTable(tableModel);
+        pList = new JScrollPane(listProduct);
+        pList.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        pList.setBounds(35,150,400,430);
+        layout.add(pList);
+        
+        BScanner.setBounds(35,150,400,430);
+        BScanner.setBackground(Color.DARK_GRAY);
+        layout.add(BScanner);
         
         //setBounds(KIRI,ATAS,KANAN,BAWAH);
         header.setSize(1100, 200);
