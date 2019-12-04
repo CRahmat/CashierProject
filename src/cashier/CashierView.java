@@ -172,7 +172,7 @@ public class CashierView {
         
         //DATABASE
         tableModel = new DefaultTableModel(colom, 30);
-        listProduct = new JTable(tableModel);
+        listProduct = new JTable();
         pList = new JScrollPane(listProduct);
         pList.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         pList.setBounds(695,120,400,500);

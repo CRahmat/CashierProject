@@ -102,5 +102,14 @@ public class CashierModel {
             JOptionPane.showMessageDialog(null, exception.getMessage());
         }        
     }
+    public void updateStock(String productID, int stock){
+        try{
+        String query = "UPDATE product SET stock = "+stock+" WHERE id_product = '"+productID+"' ";
+        Statement statement = DatabaseConnection.getConnection().createStatement();
+        statement.executeUpdate(query);
+        }catch(SQLException exception){
+            JOptionPane.showMessageDialog(null, exception.getMessage());
+        } 
+    }
     
 }

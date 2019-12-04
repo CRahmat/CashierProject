@@ -58,9 +58,10 @@ public class CashierController {
                    cashierView.settotalShop(String.valueOf(cashierModel.jumlahBelanja));
                    cashierView.setjumlahItem(String.valueOf(cashierModel.jumlahItem));
                    //INPUT TO TABLE SHOP
-                   int i = 0;
-                   cashierView.tableShop.insertRow(i, new Object[]{cashierModel.productNumber, cashierModel.productName, cashierModel.productPrice, cashierModel.jumlahItem});
-                   i++;
+                   cashierView.tableShop.insertRow(0,new Object[]{cashierModel.productNumber, cashierModel.productName, cashierModel.productPrice, cashierModel.jumlahItem});
+                    int updateStock = Integer.parseInt(cashierModel.productStock);
+                    updateStock--;
+                    cashierModel.updateStock(cashierView.tfproductID.getText(), updateStock);
                    //INPUT TO DATABASE
                    String Date = cashierView.ldate.getText() +"-"+  cashierView.lclock.getText();
                    int price = Integer.parseInt(cashierModel.productPrice);
@@ -93,14 +94,18 @@ public class CashierController {
                    cashierView.setjumlahItem(String.valueOf(cashierModel.jumlahItem));
                    //INPUT TO TABLE SHOP
                    int i = 0;
-                   cashierView.tableShop.insertRow(i, new Object[]{cashierModel.productNumber, cashierModel.productName, cashierModel.productPrice, cashierModel.jumlahItem});
+                   cashierView.tableShop.insertRow(i,new Object[]{cashierModel.productNumber, cashierModel.productName, cashierModel.productPrice, cashierModel.jumlahItem});
                    i++;
+                   int updateStock = Integer.parseInt(cashierModel.productStock);
+                    updateStock--;
+                    cashierModel.updateStock(cashierView.tfproductID.getText(), updateStock);
                    //INPUT TO DATABASE
                    String Date = cashierView.ldate.getText() +"-"+  cashierView.lclock.getText();
                    int price = Integer.parseInt(cashierModel.productPrice);
                    int profit = Integer.parseInt(cashierModel.productProfit);
                    cashierModel.addHistory(productID, Date, cashierModel.jumlahItem,price, profit);
                    cashierModel.checking = false;
+                   cashierView.tfproductID.setText("");
                }
                 else{
                     JOptionPane.showMessageDialog(null, "NOT FOUND '"+productID+"' IN DATABASE");
