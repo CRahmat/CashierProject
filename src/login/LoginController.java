@@ -1,3 +1,8 @@
+package login;
+
+import home.VCHome;
+import registrasi.MVCRegister;
+import login.LoginModel;
 import java.awt.event.*;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -20,6 +25,7 @@ public class LoginController {
                 String name = loginView.getName();
                 String password = loginView.getPassword();
                 loginModel.create(name, password);
+                new VCHome();
                 //String data[][] = loginModel.getAll();
             }
         });

@@ -1,3 +1,6 @@
+package registrasi;
+
+import Connection.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -53,7 +56,7 @@ public class RegisModel {
     public void create(String Name, String Address, String Gender, String Telp, String Password){
         try{
             String query = "INSERT INTO admin (Name, Address, Gender, Telp, Password) VALUES" + " ('"+Name+"','"+Address+"','"+Gender+"','"+Telp+"','"+Password+"')";                       
-            Statement statement = Database.getConnection().createStatement();
+            Statement statement = DatabaseConnection.getConnection().createStatement();
             System.out.println("Berhasil");
             statement.executeUpdate(query);
             System.out.println("Berhasil ditambahkan");
@@ -66,7 +69,7 @@ public class RegisModel {
         int count = 0;
         try{
             String query = "SELECT count(*) as count FROM admin";
-            Statement statement = Database.getConnection().createStatement();
+            Statement statement = DatabaseConnection.getConnection().createStatement();
             ResultSet result = statement.executeQuery(query);
             
             if(result.next()){
@@ -82,7 +85,7 @@ public class RegisModel {
         String[][] data = new String[this.getCount()][6];
         try{
             String query = "SELECT * FROM admin";
-            Statement statement = Database.getConnection().createStatement();
+            Statement statement = DatabaseConnection.getConnection().createStatement();
             ResultSet result = statement.executeQuery(query);
             
             int i = 0;

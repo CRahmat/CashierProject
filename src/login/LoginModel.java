@@ -1,7 +1,11 @@
+package login;
+
+import Connection.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import registrasi.MVCRegister;
 
 public class LoginModel {
     private String name;
@@ -27,13 +31,13 @@ public class LoginModel {
     
     public void create(String Name, String Password){
         try{
-            Statement statement = Database.getConnection().createStatement();
+            Statement statement = DatabaseConnection.getConnection().createStatement();
             String queryakun = "SELECT * FROM admin";
             ResultSet result = statement.executeQuery(queryakun);
             while(result.next()){
             if((Name.equals(result.getString("name"))) && Password.equals(result.getString("password"))){
                     JOptionPane.showMessageDialog(null, "Login Berhasil");                    
-                    MVCRegister mvcr = new MVCRegister();
+                   MVCRegister mvcRegister = new MVCRegister();
                     
                 }
             else {

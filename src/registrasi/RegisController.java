@@ -1,3 +1,7 @@
+package registrasi;
+
+import registrasi.RegisView;
+import registrasi.RegisModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 

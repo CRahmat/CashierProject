@@ -1,3 +1,5 @@
+package registrasi;
+
 import java.awt.*;
 import java.util.Locale;
 import java.util.Scanner;

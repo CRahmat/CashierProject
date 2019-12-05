@@ -1,9 +1,9 @@
 package Main;
 
-import home.VCHome;
+import login.MVCLogin;
     public class Main {
     public static void main(String[] args) {
-        new VCHome();
+        new MVCLogin();
     }
     
 }
