@@ -1,24 +1,11 @@
 package list;
-
 import Connection.DatabaseConnection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Catur Rahmat
- */
-public class ListModel {
-    
-    public ListModel(){
-        
+public class ListModel {    
+    public ListModel(){        
     }
     public int getCount(){
         int count = 0;
@@ -48,13 +35,11 @@ public class ListModel {
               allProduct[i][3] = resultSet.getString("profit");
               allProduct[i][4] = resultSet.getString("stock");
               i++;
-            }
-            
+            }            
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "DATA TIDAK DITEMUKAN");
         }
         
         return allProduct;
-    }
-    
+    }    
 }

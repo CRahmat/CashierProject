@@ -1,6 +1,4 @@
 package input;
-
-
 import java.awt.Color;
 import java.awt.Font;
 import java.text.DateFormat;
@@ -11,16 +9,6 @@ import javax.swing.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Catur Rahmat
- */
 public class InputView {
     JFrame layout = new JFrame("Input Product");
     //LAYOUT
@@ -73,11 +61,11 @@ public class InputView {
                 String theClock = Clock.format(new Date()).toString();
                 lclock.setText(theClock);
                 ldate.setText(theDate);
-            try{
-                Thread.sleep(1000);
-            }catch(Exception e){
-                e.printStackTrace();
-            }
+                try{
+                    Thread.sleep(1000);
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
             }   
         }
         };
@@ -137,8 +125,7 @@ public class InputView {
         LKinput.setForeground(Color.WHITE);
         LKinput.setBounds(420,70,340,15);
         layout.add(LKinput);
-        
-        
+                
         lIdProduct.setFont(new Font("Agency FB",Font.CENTER_BASELINE,18));
         lIdProduct.setForeground(Color.WHITE);
         lIdProduct.setBounds(650,170,80,40);
@@ -232,6 +219,5 @@ public class InputView {
     }
     public String getProfit(){
         return tfProfit.getText();
-    }
-    
+    }    
 }

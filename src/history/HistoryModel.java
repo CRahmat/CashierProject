@@ -1,25 +1,13 @@
 package history;
-
 import Connection.DatabaseConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Catur Rahmat
- */
 public class HistoryModel {
-    int totalProfit;
-    
-            public int getCount(){
+    int totalProfit;    
+        public int getCount(){
         int count = 0;
         try{
             String query = "SELECT COUNT(*) as count FROM historytransaction";
@@ -47,14 +35,10 @@ public class HistoryModel {
               allProduct[i][3] = resultSet.getString("historytransaction.jumlah");
               allProduct[i][4] = "Rp " + resultSet.getString("product.price");
               i++;
-            }
-            
+            }            
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "DATA TIDAK DITEMUKAN");
-        }
-        
+        }        
         return allProduct;
-    }
-    
-    
+    }        
 }

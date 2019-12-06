@@ -1,6 +1,4 @@
 package profit;
-
-
 import java.awt.Color;
 import java.awt.Font;
 import java.text.DateFormat;
@@ -9,16 +7,6 @@ import java.util.Date;
 import javax.swing.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Catur Rahmat
- */
 public class ProfitView {
     JFrame layout = new JFrame("Profit Company");
     //LAYOUT
@@ -157,10 +145,7 @@ public class ProfitView {
         layout.add(content);
         
     }
-
     public void setLRp(String LRp) {
         this.LRp.setText("Rp " + LRp);
-    }
-    
-    
+    }       
 }

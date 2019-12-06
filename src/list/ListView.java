@@ -1,6 +1,4 @@
 package list;
-
-
 import java.awt.Color;
 import java.awt.Font;
 import java.text.DateFormat;
@@ -11,10 +9,6 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 
 
-/**
- *
- * @author Catur Rahmat
- */
 public class ListView {
     JFrame layout = new JFrame("Delete Product");
     //LAYOUT
@@ -123,8 +117,7 @@ public class ListView {
         pList.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         pList.setBounds(50,170,1000,400);
         layout.add(pList);
-        
-        
+                
         //setBounds(KIRI,ATAS,KANAN,BAWAH);
         header.setSize(1100, 200);
         header.setBounds(0,0,1100,120);
@@ -133,6 +126,5 @@ public class ListView {
         content.setBounds(0,120,430,1100);
         content.setBackground(new Color(0, 188, 242));
         layout.add(content);
-    }
-    
+    }    
 }

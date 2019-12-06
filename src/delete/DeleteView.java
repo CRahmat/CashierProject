@@ -1,6 +1,4 @@
 package delete;
-
-
 import java.awt.Color;
 import java.awt.Font;
 import java.text.DateFormat;
@@ -10,16 +8,6 @@ import javax.swing.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Catur Rahmat
- */
 public class DeleteView {
     JFrame layout = new JFrame("Delete Product");
     //LAYOUT
@@ -44,12 +32,10 @@ public class DeleteView {
     
     JTextField tfIdProduct = new JTextField();
     JTextField tfProductName = new JTextField();
-
     
     JLabel lIdProduct = new JLabel("ID PRODUCT");
     JLabel lProductName = new JLabel("NAME");
-
-            JTable listProduct;
+    JTable listProduct;
     JScrollPane pList;
     DefaultTableModel tableModel;
     String colom[] = {"ID PRODUCT" , "PRODUCT NAME", "PRICE"};

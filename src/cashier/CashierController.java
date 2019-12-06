@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cashier;
-
 import home.VCHome;
 import input.MVCInput;
 import java.awt.event.ActionEvent;
@@ -17,10 +11,6 @@ import javax.swing.table.DefaultTableModel;
 import update.UpdateModel;
 import update.UpdateView;
 
-/**
- *
- * @author Catur Rahmat
- */
 public class CashierController {
     CashierModel cashierModel;
     CashierView cashierView;
@@ -90,8 +80,7 @@ public class CashierController {
                     cashierView.setproductID("");
                     cashierView.setjumlahItem("");
                     cashierView.settotalShop(String.valueOf(cashierModel.jumlahBelanja));
-                }
-               
+                }               
             }
     });
     cashierView.tfproductID.addActionListener(new ActionListener() {//Action jika di Pencet Add
@@ -151,8 +140,6 @@ public class CashierController {
                }
             }
         }
-        );
-  
-    }
-    
+        ); 
+    }    
 }

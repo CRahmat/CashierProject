@@ -1,17 +1,4 @@
 package cashier;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Catur Rahmat
- */
-
-
 import java.awt.Color;
 import java.awt.Font;
 import java.text.DateFormat;
@@ -21,15 +8,10 @@ import javax.swing.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 
-
-/**
- *
- * @author Catur Rahmat
- */
 public class CashierView {
     JFrame layout = new JFrame("Cashier Aplication");
     //LAYOUT
-        String productName;
+    String productName;
     String stock;
     String price;
     String totalShop;
@@ -50,8 +32,7 @@ public class CashierView {
     JLabel Llogo = new JLabel();
     JLabel Lback = new JLabel();
     JPanel ptime = new JPanel();
-    
-    
+        
     JLabel lclock = new JLabel();
     JLabel ldate = new JLabel();
     JLabel ltotal = new JLabel("Rp ");
@@ -88,7 +69,6 @@ public class CashierView {
     DefaultTableModel tableShop;
     String coloumShop[] = {"NO","PRODUCT","PRICE","COUNT"};
     
-
     ImageIcon ILogo = new ImageIcon(getClass().getResource("/img/logo.png"));
     ImageIcon IBack = new ImageIcon(getClass().getResource("/img/back.png"));
     public CashierView(){
@@ -297,15 +277,12 @@ public class CashierView {
     public void setproductName(String productName) {
         tfproductName.setText(productName);
     }
-
     public void setstock(String stock) {
         tfstock.setText(stock);
     }
-
     public void setprice(String price) {
         tfprice.setText("Rp" + price);
     }
-
     public void settotalShop(String totalShop) {
         tftotalShop.setText("Rp "+totalShop);
         lmoneyPanel.setText("Rp "+totalShop);
@@ -313,7 +290,6 @@ public class CashierView {
     public void setjumlahItem(String jumlahItem) {
         tfjumlah.setText(jumlahItem);
     }
-
     public String getproductID() {
         return tfproductID.getText();
     }
@@ -324,4 +300,3 @@ public class CashierView {
         tfmoney.setText(money);
     }
 }
-

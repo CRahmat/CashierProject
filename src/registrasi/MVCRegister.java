@@ -1,6 +1,4 @@
 package registrasi;
-
-
 import registrasi.RegisView;
 import registrasi.RegisModel;
 

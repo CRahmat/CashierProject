@@ -1,6 +1,4 @@
-package Home;
-
-
+package home;
 import cashier.MVCCashier;
 import delete.MVCDelete;
 import history.MVCHistory;
@@ -10,26 +8,19 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import list.MVCList;
+import login.LoginView;
+import login.MVCLogin;
 import profit.MVCProfit;
 import update.MVCUpdate;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Catur Rahmat
- */
 public class HomeController {
     HomeView homeView;
-
-    public HomeController(HomeView homeView) {
+    HomeModel homeModel;
+    public HomeController(HomeView homeView, HomeModel homeModel) {
         this.homeView = homeView;
-        homeView.input.addMouseListener(new MouseAdapter() {
-            
+        this.homeModel = homeModel;
+        homeView.adminName.setText(homeModel.getAdminName());
+        homeView.input.addMouseListener(new MouseAdapter() {            
             @Override
             public void mouseClicked(MouseEvent me){
                 homeView.home.setVisible(false);
@@ -37,56 +28,59 @@ public class HomeController {
             }
         });
         homeView.update.addMouseListener(new MouseAdapter() {
-        @Override
-        public void mouseClicked(MouseEvent me){
-            homeView.home.setVisible(false);
-            MVCUpdate mvcUpdate = new MVCUpdate();
-        }
+            @Override
+            public void mouseClicked(MouseEvent me){
+                homeView.home.setVisible(false);
+                MVCUpdate mvcUpdate = new MVCUpdate();
+            }
         });
         homeView.logoutAdmin.addMouseListener(new MouseAdapter() {
-        @Override
-        public void mouseClicked(MouseEvent me){
-            homeView.home.setVisible(false);
-            //new MVCLogin();
-        }
+            @Override
+            public void mouseClicked(MouseEvent me){
+                homeView.home.setVisible(false);
+            }
         });
         homeView.delete.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me){
-            homeView.home.setVisible(false);
-            MVCDelete mvcDelete = new MVCDelete();
+                homeView.home.setVisible(false);
+                MVCDelete mvcDelete = new MVCDelete();
             }
         });
         homeView.list.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me){
-            homeView.home.setVisible(false);
-            MVCList mvcList = new MVCList();
+                homeView.home.setVisible(false);
+                MVCList mvcList = new MVCList();
             }
         });
         homeView.history.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me){
-            homeView.home.setVisible(false);
+                homeView.home.setVisible(false);
             MVCHistory mvcHistory = new MVCHistory();
             }
         });
         homeView.profit.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me){
-            homeView.home.setVisible(false);
-            MVCProfit mvcHistory = new MVCProfit();
+                homeView.home.setVisible(false);
+                MVCProfit mvcHistory = new MVCProfit();
             }
         });
         homeView.LAdmin.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent me){
-            homeView.home.setVisible(false);
-            MVCCashier mVCCashier = new MVCCashier();
+                homeView.home.setVisible(false);
+                MVCCashier mVCCashier = new MVCCashier();
             }
         });
-        
-    }
-    
-    
+        homeView.logoutAdmin.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent me){
+                homeView.home.setVisible(false);
+                MVCLogin login = new MVCLogin();
+            }
+        });
+    }        
 }

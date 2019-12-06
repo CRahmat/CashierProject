@@ -1,6 +1,4 @@
 package update;
-
-
 import java.awt.Color;
 import java.awt.Font;
 import java.text.DateFormat;
@@ -11,11 +9,6 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import static javax.swing.SwingConstants.VERTICAL;
 import javax.swing.table.DefaultTableModel;
 
-
-/**
- *
- * @author Catur Rahmat
- */
 public class UpdateView {
     JFrame layout = new JFrame("Update Product");
     //LAYOUT
@@ -53,7 +46,7 @@ public class UpdateView {
     JLabel lProfit = new JLabel("PROFIT");
     JLabel lStock = new JLabel("STOCK");
     JLabel linputProduct = new JLabel("UPDATE PRODUCT");
-      JTable listProduct;
+    JTable listProduct;
     JScrollPane pList;
     DefaultTableModel tableModel;
     String colom[] = {"ID PRODUCT" , "PRODUCT NAME", "PRICE"};
@@ -62,22 +55,22 @@ public class UpdateView {
     ImageIcon IBack = new ImageIcon(getClass().getResource("/img/back.png"));
     UpdateView(){
         Thread clock = new Thread(){
-        @Override
-        public void run(){
-            while(true){
-                DateFormat Date = new SimpleDateFormat("dd - MM - yyyy");
-                String theDate = Date.format(new Date()).toString();
-                DateFormat Clock = new SimpleDateFormat("hh : mm : ss");
-                String theClock = Clock.format(new Date()).toString();
-                lclock.setText(theClock);
-                ldate.setText(theDate);
-            try{
-                Thread.sleep(1000);
-            }catch(Exception e){
-                e.printStackTrace();
+            @Override
+            public void run(){
+                while(true){
+                    DateFormat Date = new SimpleDateFormat("dd - MM - yyyy");
+                    String theDate = Date.format(new Date()).toString();
+                    DateFormat Clock = new SimpleDateFormat("hh : mm : ss");
+                    String theClock = Clock.format(new Date()).toString();
+                    lclock.setText(theClock);
+                    ldate.setText(theDate);
+                    try{
+                        Thread.sleep(1000);
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
+                }   
             }
-            }   
-        }
         };
         clock.start();
         initComponents();
@@ -213,9 +206,7 @@ public class UpdateView {
         linputProduct.setForeground(Color.BLACK);
         linputProduct.setBounds(740,520,250,40);
         layout.add(linputProduct);
-        
-        
-        
+                        
         pupdate.setBounds(575,520,425,40);
         pupdate.setBackground(Color.WHITE);
         layout.add(pupdate);
@@ -265,6 +256,5 @@ public class UpdateView {
     }
     public void setProfit(String Profit){
         tfProfit.setText(Profit);
-    }
-    
+    }    
 }

@@ -1,5 +1,4 @@
 package delete;
-
 import Connection.DatabaseConnection;
 import home.VCHome;
 import java.sql.ResultSet;
@@ -7,10 +6,6 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import list.MVCList;
 
-/**
- *
- * @author Catur Rahmat
- */
 public class DeleteModel {
     String productName;
     boolean checking = false;
@@ -26,14 +21,11 @@ public class DeleteModel {
                   this.checking = true;
                   this.productName = resultSet.getString("product_name");
               }
-          }
-          
+          }          
       }catch(Exception sql){
           JOptionPane.showMessageDialog(null, sql.getMessage());
-      }
-        
-        return checking;
-        
+      }        
+        return checking;        
     }
     public void deleteData( String productID){
         try{
@@ -44,9 +36,7 @@ public class DeleteModel {
       }catch(Exception sql){
           JOptionPane.showMessageDialog(null, sql.getMessage());
       }
-
-    }
-    
+    }    
     public int getCount(){
         int count = 0;
         try{
@@ -73,12 +63,10 @@ public class DeleteModel {
               allProduct[i][1] = resultSet.getString("product_name");
               allProduct[i][2] = "Rp" + resultSet.getString("price");
               i++;
-            }
-            
+            }            
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "DATA TIDAK DITEMUKAN");
-        }
-        
+        }        
         return allProduct;
     }
 }

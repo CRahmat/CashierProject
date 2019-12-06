@@ -1,6 +1,4 @@
 package history;
-
-
 import java.awt.Color;
 import java.awt.Font;
 import java.text.DateFormat;
@@ -10,18 +8,8 @@ import javax.swing.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Catur Rahmat
- */
 public class HistoryView {
-    JFrame layout = new JFrame("History Transaction");
+    JFrame layout = new JFrame("Transaction History");
     //LAYOUT
     JPanel homeBackground = new JPanel();
     JPanel header = new JPanel();
@@ -35,7 +23,7 @@ public class HistoryView {
     JLabel Lback = new JLabel();
     JPanel ptime = new JPanel();
     
-    JLabel Llist = new JLabel("HISTORY TRANSACTION");
+    JLabel Llist = new JLabel("TRANSACTION History");
     JLabel LKlist = new JLabel("Show Your History Transaction From Database");
     JLabel lclock = new JLabel();
     JLabel ldate = new JLabel();
@@ -137,9 +125,7 @@ public class HistoryView {
         layout.add(header);
         content.setBounds(0,120,430,1100);
         content.setBackground(new Color(0, 188, 242));
-        layout.add(content);
-        
-    }
-    
+        layout.add(content);        
+    }    
 }
 

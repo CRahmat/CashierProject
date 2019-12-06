@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cashier;
-
 import Connection.DatabaseConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,10 +6,6 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import list.MVCList;
 
-/**
- *
- * @author Catur Rahmat
- */
 public class CashierModel {
     String productName;
     String productPrice;
@@ -45,8 +35,7 @@ public class CashierModel {
                   this.productStock = resultSet.getString("stock");
                   this.jumlahItem++;
                   this.productNumber++;
-                  jumlahBelanja = jumlahBelanja+total;
-                  
+                  jumlahBelanja = jumlahBelanja+total;                  
               }
           }
           
@@ -87,12 +76,10 @@ public class CashierModel {
               allProduct[i][2] = price;
               allProduct[i][3] = resultSet.getString("stock");
               i++;
-            }
-            
+            }            
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "DATA TIDAK DITEMUKAN");
-        }
-        
+        }        
         return allProduct;
     }
     public void addHistory(String productID, String date, int jumlah, int price, int profit){
@@ -112,6 +99,5 @@ public class CashierModel {
         }catch(SQLException exception){
             JOptionPane.showMessageDialog(null, exception.getMessage());
         } 
-    }
-    
+    }    
 }

@@ -1,19 +1,10 @@
-package Home;
-
-
+package home;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-/**
- *
- * @author Catur Rahmat
- */
 public class HomeView {
-    //CODE COLOR
-    //SIDE BAR = 0,153,255
-    //CONTENT = 0, 188, 242
     JFrame home = new JFrame("Home");
     //LAYOUT
     JPanel homeBackground = new JPanel();
@@ -35,6 +26,7 @@ public class HomeView {
     JLabel Llogo = new JLabel();
     JLabel LAdmin = new JLabel();
     JLabel LadminName = new JLabel("Admin Name ");
+    JLabel adminName = new JLabel();
     JLabel Llogout = new JLabel("Log Out");
     JLabel LVersion = new JLabel("Cashier Application v.1.0.0");
     JLabel LKinput = new JLabel("INPUT");
@@ -81,8 +73,7 @@ public class HomeView {
         home.setDefaultCloseOperation(EXIT_ON_CLOSE);
         home.setVisible(true);
         home.setLocationRelativeTo(null);
-        home.setResizable(false);
-        
+        home.setResizable(false);        
     }
     public void initComponents(){
         home.add(Lbackground);
@@ -193,31 +184,39 @@ public class HomeView {
         profit.setBounds(850, 350, 200, 200);
         profit.setBackground(new Color(135,206,250));
         home.add(profit);
+        
         //SEPARATOR
         search.setBounds(400, 60, 600, 50);
         home.add(search);
         buttomLogo.setBounds(10, 130, 280, 10);
         home.add( buttomLogo);
+        
         //LOGO
         Llogo.setBounds(50, 20, 200, 100);
         Llogo.setIcon(logo);
-        home.add(Llogo);
-        
+        home.add(Llogo);        
         LAdmin.setBounds(50, 160, 200, 200);
         LAdmin.setIcon(admin);
         home.add(LAdmin);
+        
         //ADMIN INFO
         LadminName.setFont(new Font("Agency FB", Font.BOLD , 16));
         LadminName.setForeground(Color.WHITE);
         LadminName.setBounds(20, 380, 70, 50);
         JSadminName.setBounds(92, 410, 178, 50);
+        LadminName.setFont(new Font("Agency FB", Font.BOLD , 16));
+        LadminName.setForeground(Color.WHITE);
+        LadminName.setBounds(20, 380, 70, 50);
+        adminName.setFont(new Font("Agency FB", Font.BOLD , 20));
+        adminName.setForeground(Color.WHITE);
+        adminName.setBounds(110, 373, 150, 50);
+        home.add(adminName);
         home.add(LadminName);
         home.add(JSadminName);
         LVersion.setFont(new Font("Agency FB", Font.CENTER_BASELINE , 12));
         LVersion.setForeground(Color.WHITE);
         LVersion.setBounds(95, 570, 110, 50);
-        home.add(LVersion);
-        
+        home.add(LVersion);        
         LSearch.setBounds(410, 25, 32, 32);
         LSearch.setIcon(Search);
         home.add(LSearch);
@@ -225,6 +224,7 @@ public class HomeView {
         LsearchProduct.setForeground(Color.BLACK);
         LsearchProduct.setBounds(450, 30, 300, 20);
         home.add(LsearchProduct);
+        
         //SIDE BAR
         Llogout.setFont(new Font("Agency FB", Font.CENTER_BASELINE , 24));
         Llogout.setForeground(Color.WHITE);
@@ -233,16 +233,17 @@ public class HomeView {
         logoutAdmin.setBounds(50, 500, 200, 50);
         logoutAdmin.setBackground(new Color(135,206,250));
         home.add(logoutAdmin);
+        
         //SIDE BAR LAYOUT
         sideBar.setBounds(0, 0, 300, 650);
         sideBar.setBackground(new Color(0,153,255));
         home.add(sideBar);
+        
         //CONTENT LAYOUT
         Lbackground.setBounds(300, 0, 800, 650);
         Lbackground.setIcon(background);
         home.add(Lbackground);
         content.setBounds(300, 0, 800, 650);
-        home.add(content);
-        
+        home.add(content);        
     }
 }

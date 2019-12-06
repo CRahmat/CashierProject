@@ -1,5 +1,4 @@
 package input;
-
 import Connection.DatabaseConnection;
 import home.VCHome;
 import java.sql.Connection;
@@ -7,13 +6,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Catur Rahmat
- */
 public class InputModel {
     private Connection connection;
-
     public InputModel(){
         
     }
@@ -28,8 +22,7 @@ public class InputModel {
           System.out.println(sql.getMessage());
           JOptionPane.showMessageDialog(null, sql.getMessage());
       }
-    }
-    
+    }    
     public int getCount(){
         int count = 0;
         try{
@@ -57,13 +50,10 @@ public class InputModel {
               allProduct[i][2] = "Rp" + resultSet.getString("price");
               allProduct[i][3] = resultSet.getString("stock");
               i++;
-            }
-            
+            }            
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "DATA TIDAK DITEMUKAN");
-        }
-        
+        }        
         return allProduct;
-    }
-    
+    }    
 }

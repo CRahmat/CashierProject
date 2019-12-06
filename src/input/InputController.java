@@ -1,5 +1,4 @@
 package input;
-
 import home.VCHome;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -8,16 +7,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JTable;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Catur Rahmat
- */
 public class InputController {
     InputView inputView;
     InputModel inputModel;
@@ -35,10 +24,8 @@ public class InputController {
                     int row = inputView.listProduct.getSelectedRow();
                     int col = inputView.listProduct.getSelectedColumn();
                     inputView.listProduct.getValueAt(row,0).toString();
-                }
-                
-});
-            
+                }                
+            });            
         inputView.pback.addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent me){
@@ -62,10 +49,7 @@ public class InputController {
                 inputModel.InputData(productID, productName, price, profit, stock);
                  String data[][] = inputModel.findAllProduct();
                     inputView.listProduct.setModel((new JTable(data, inputView.colom)).getModel());
-            }
-        
-        });
-        
-    }
-        
-    }
+            }        
+        });        
+    }        
+}

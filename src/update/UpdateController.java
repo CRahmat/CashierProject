@@ -1,5 +1,4 @@
 package update;
-
 import home.VCHome;
 import input.InputModel;
 import input.InputView;
@@ -10,16 +9,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Catur Rahmat
- */
 public class UpdateController {
     UpdateModel updateModel;
     UpdateView updateView;
@@ -28,20 +17,18 @@ public class UpdateController {
     public UpdateController(UpdateModel updateModel, UpdateView updateView){
         this.updateModel = updateModel;
         this.updateView = updateView;
-                String data[][] = updateModel.findAllProduct();
-           updateView.listProduct.setModel((new JTable(data, updateView.colom)).getModel());
-            updateView.listProduct.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e){
-                    super.mousePressed(e);
-                    int row = updateView.listProduct.getSelectedRow();
-                    int col = updateView.listProduct.getSelectedColumn();
-                    updateView.listProduct.getValueAt(row,0).toString();
-                }
-                
-});
-            
-    updateView.pback.addMouseListener(new MouseAdapter(){
+        String data[][] = updateModel.findAllProduct();
+        updateView.listProduct.setModel((new JTable(data, updateView.colom)).getModel());
+        updateView.listProduct.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e){
+                super.mousePressed(e);
+                int row = updateView.listProduct.getSelectedRow();
+                int col = updateView.listProduct.getSelectedColumn();
+                updateView.listProduct.getValueAt(row,0).toString();
+            }                
+        });            
+        updateView.pback.addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent me){
                 super.mouseClicked(me);
@@ -49,7 +36,7 @@ public class UpdateController {
                 VCHome vcHome = new VCHome();
             }
         });
-    updateView.tfIdProduct.addActionListener(new ActionListener() {//Action jika di Pencet Add
+        updateView.tfIdProduct.addActionListener(new ActionListener() {//Action jika di Pencet Add
             @Override
             public void actionPerformed(ActionEvent e) {
                String productID = updateView.getIdProduct();
@@ -69,29 +56,23 @@ public class UpdateController {
                     updateView.setProductID("");
                 }
             }
-        }
-        );
-    updateView.pupdate.addMouseListener(new MouseAdapter() {
-    public void mouseClicked(MouseEvent me){
-        super.mouseClicked(me);
-        if(updateModel.checking == true){
-        String productID = updateView.tfIdProduct.getText();
-        String tempPrice = updateView.tfUpdateProductPrice.getText();
-        int price = Integer.parseInt(tempPrice);
-        String tempProfit = updateView.tfUpdateProfit.getText();
-        int profit = Integer.parseInt(tempProfit);
-        String tempStock = updateView.tfUpdateStock.getText();
-        int stock = Integer.parseInt(tempStock);
-        updateModel.UpdateData(productID, price, profit, stock);
-        String data[][] = updateModel.findAllProduct();
-                    updateView.listProduct.setModel((new JTable(data, updateView.colom)).getModel());
-        }
-        
-    }  
-
-    });
-    
-        
-    }
-    
+        });
+        updateView.pupdate.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent me){
+                super.mouseClicked(me);
+                if(updateModel.checking == true){
+                String productID = updateView.tfIdProduct.getText();
+                String tempPrice = updateView.tfUpdateProductPrice.getText();
+                int price = Integer.parseInt(tempPrice);
+                String tempProfit = updateView.tfUpdateProfit.getText();
+                int profit = Integer.parseInt(tempProfit);
+                String tempStock = updateView.tfUpdateStock.getText();
+                int stock = Integer.parseInt(tempStock);
+                updateModel.UpdateData(productID, price, profit, stock);
+                String data[][] = updateModel.findAllProduct();
+                updateView.listProduct.setModel((new JTable(data, updateView.colom)).getModel());
+                }
+            }  
+        });            
+    }    
 }

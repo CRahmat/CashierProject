@@ -1,5 +1,4 @@
 package list;
-
 import home.VCHome;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -7,16 +6,6 @@ import javax.swing.JTable;
 import profit.ProfitModel;
 import profit.ProfitView;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Catur Rahmat
- */
 public class ListController {
     ListModel listModel;
    ListView listView;
@@ -33,8 +22,7 @@ public class ListController {
                     int row = listView.listProduct.getSelectedRow();
                     int col = listView.listProduct.getSelectedColumn();
                     listView.listProduct.getValueAt(row,0).toString();
-                }
-                
+                }                
 });
             listView.pback.addMouseListener(new MouseAdapter(){
             @Override
@@ -44,6 +32,5 @@ public class ListController {
                 VCHome vcHome = new VCHome();
             }
         });
-    }
-    
+    }   
 }

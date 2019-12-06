@@ -1,5 +1,4 @@
 package registrasi;
-
 import Connection.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -12,56 +11,25 @@ public class RegisModel {
     private String gender;
     private String password;
     private String telp;
-    
-    public String getName() {
-        return name;
+    private boolean checking;      
+
+    public boolean isChecking() {
+        return checking;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setChecking(boolean checking) {
+        this.checking = checking;
     }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    } 
-    
-    public String getTelp() {
-        return telp;
-    }
-
-    public void setTelp(String telp) {
-        this.telp = telp;
-    }
-    
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password){
-        this.password = password;
-    }        
-    
+   
     public void create(String Name, String Address, String Gender, String Telp, String Password){
+        checking = true;
         try{
-            String query = "INSERT INTO admin (Name, Address, Gender, Telp, Password) VALUES" + " ('"+Name+"','"+Address+"','"+Gender+"','"+Telp+"','"+Password+"')";                       
+            String query = "INSERT INTO admin (username, address, gender, telp, password) VALUES" + " ('"+Name+"','"+Address+"','"+Gender+"','"+Telp+"','"+Password+"')";                       
             Statement statement = DatabaseConnection.getConnection().createStatement();
-            System.out.println("Berhasil");
             statement.executeUpdate(query);
-            System.out.println("Berhasil ditambahkan");
+            checking = false;
         }catch(Exception sql){
-            System.out.println(sql.getMessage());
+            setChecking(true);
         }
     }
     
@@ -90,19 +58,16 @@ public class RegisModel {
             
             int i = 0;
             while(result.next()){
-                data[i][0] = result.getString("id");
-                data[i][1] = result.getString("name");
+                data[i][0] = result.getString("username");
                 data[i][2] = result.getString("address");
                 data[i][3] = result.getString("gender"); 
                 data[i][4] = result.getString("telp");
-                data[i][5] = result.getString("password");
+                data[i][1] = result.getString("password");
                 i++;
             }
         }catch(Exception sql){
             System.out.println(sql.getMessage());
         }
         return data;
-    }
-    
+    }    
 }
-

@@ -1,13 +1,8 @@
 package profit;
-
 import home.VCHome;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-/**
- *
- * @author Catur Rahmat
- */
 public class ProfitController {
     ProfitModel profitModel;
     ProfitView profitView;
@@ -15,8 +10,7 @@ public class ProfitController {
         this.profitModel = profitModel;
         this.profitView = profitView;
         
-       profitView.setLRp(String.valueOf(profitModel.getTotalProfit(0)));
-        
+       profitView.setLRp(String.valueOf(profitModel.getTotalProfit(0)));        
             profitView.pback.addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent me){
@@ -25,7 +19,5 @@ public class ProfitController {
                 VCHome vcHome = new VCHome();
             }
         });
-    }
-    
-    
+    }        
 }
